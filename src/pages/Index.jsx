@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Image, Text, VStack, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Text, VStack, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, Input, Select, Link } from "@chakra-ui/react";
 import { useState } from 'react';
 
 const Index = () => {
@@ -78,6 +78,18 @@ const Index = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+      <Box as="footer" width="full" py={5} mt={10} bg="gray.900" color="white">
+        <Container maxW="container.xl">
+          <Flex justifyContent="space-between" alignItems="center">
+            <Text fontSize="sm">© 2023 Get Out Kayak. All rights reserved.</Text>
+            <Flex>
+              <Link href="/privacy-policy" px={2} fontSize="sm">Privacy Policy</Link>
+              <Link href="/terms-of-service" px={2} fontSize="sm">Terms of Service</Link>
+            </Flex>
+            <Text fontSize="sm">Contact: contact@getoutkayak.com | +123 456 7890</Text>
+          </Flex>
+        </Container>
+      </Box>
     </Container>
   );
 };
