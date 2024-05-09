@@ -19,6 +19,15 @@ const Index = () => {
           <Heading as="h2" size="lg">Services Offered</Heading>
           <Text fontSize="md">We provide guided tours, kayak rentals, and personalized adventure planning to ensure you have a memorable experience on the water.</Text>
         </VStack>
+        <VStack flex="1" p={5} align="start">
+          <Heading as="h2" size="lg">Kayak Centers</Heading>
+          <Text fontSize="md">
+            Explore our prime kayaking centers located at Stavsnäs and Sollenkroka, known for their beautiful, wild nature and popularity within the kayak community. These centers serve as the perfect starting points for your tours in the Stockholm archipelago.
+          </Text>
+          <Text fontSize="md">
+            Don't miss our pop-up center at Bullandö, ideal for group events and kayak storage.
+          </Text>
+        </VStack>
       </Flex>
       <VStack spacing={5} py={10}>
         <Heading as="h2" size="lg">Booking Information</Heading>
