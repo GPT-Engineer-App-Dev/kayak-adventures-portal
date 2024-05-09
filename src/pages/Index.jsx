@@ -1,13 +1,19 @@
-import { Box, Container, Flex, Heading, Image, Text, VStack, Button } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Text, VStack, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
+import { useState } from 'react';
 
 const Index = () => {
+  const [isBookingModalOpen, setBookingModalOpen] = useState(false);
+
+  const openBookingModal = () => setBookingModalOpen(true);
+  const closeBookingModal = () => setBookingModalOpen(false);
+
   return (
     <Container maxW="container.xl" p={0}>
       <Box as="section" height="100vh" backgroundImage="url('/images/kayaking-banner.jpg')" backgroundSize="cover" backgroundPosition="center">
         <VStack spacing={4} justify="center" height="100%" bg="rgba(0, 0, 0, 0.5)" color="white">
           <Heading as="h1" size="2xl" textAlign="center">Get Out Kayak</Heading>
           <Text fontSize="xl">Explore the Scandinavian Outdoors</Text>
-          <Button colorScheme="teal" size="lg">Book Your Adventure</Button>
+          <Button colorScheme="teal" size="lg" onClick={openBookingModal}>Book Your Adventure</Button>
         </VStack>
       </Box>
       <Flex direction={{ base: "column", md: "row" }} py={10}>
@@ -41,6 +47,37 @@ const Index = () => {
           <Text fontSize="md">Phone: +123 456 7890</Text>
         </VStack>
       </Flex>
+      <Modal isOpen={isBookingModalOpen} onClose={closeBookingModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Book Your Kayaking Adventure</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <FormControl>
+              <FormLabel>Choose a Kayak Center</FormLabel>
+              <Select placeholder="Select center">
+                <option value="Stavsnäs">Stavsnäs</option>
+                <option value="Sollenkroka">Sollenkroka</option>
+                <option value="Bullandö">Bullandö</option>
+              </Select>
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel>Date</FormLabel>
+              <Input type="date" />
+            </FormControl>
+            <FormControl mt={4}>
+              <FormLabel>Contact Email</FormLabel>
+              <Input type="email" placeholder="Enter your email" />
+            </FormControl>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="teal" mr={3} onClick={closeBookingModal}>
+              Close
+            </Button>
+            <Button variant="ghost">Submit</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Container>
   );
 };
